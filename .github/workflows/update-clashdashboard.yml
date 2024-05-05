@@ -26,13 +26,13 @@ jobs:
 
     - name: Get version
       run: |
-        razord_meta_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/Razord-meta/tags | grep 'name' | head -n 1 | sed 's/.*v/v/' | sed 's/".*//')
+        razord_meta_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/Razord-meta/tags | grep 'name' | head -n 1 | sed -e 's/.*v/v/' -e 's/".*//')
         echo "razord_meta_download_version=${razord_meta_download_version}" >> ${GITHUB_ENV}
-        yacd_download_version=$(curl -sSL https://api.github.com/repos/haishanh/yacd/releases/latest | grep 'tag_name' | sed 's/.*v/v/' | sed 's/".*//')
+        yacd_download_version=$(curl -sSL https://api.github.com/repos/haishanh/yacd/releases/latest | grep 'tag_name' | sed -e 's/.*v/v/' -e 's/".*//')
         echo "yacd_download_version=${yacd_download_version}" >> ${GITHUB_ENV}
-        yacd_meta_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/Yacd-meta/releases/latest | grep 'tag_name' | sed 's/.*v/v/' | sed 's/".*//')
+        yacd_meta_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/Yacd-meta/releases/latest | grep 'tag_name' | sed -e 's/.*v/v/' -e 's/".*//')
         echo "yacd_meta_download_version=${yacd_meta_download_version}" >> ${GITHUB_ENV}
-        metacubexd_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/metacubexd/releases/latest | grep 'tag_name' | sed 's/.*v/v/' | sed 's/".*//')
+        metacubexd_download_version=$(curl -sSL https://api.github.com/repos/MetaCubeX/metacubexd/releases/latest | grep 'tag_name' | sed -e 's/.*v/v/' -e 's/".*//')
         echo "metacubexd_download_version=${metacubexd_download_version}" >> ${GITHUB_ENV}
 
     - name: Download and compress `Razord-meta` dashboard
