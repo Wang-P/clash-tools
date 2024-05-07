@@ -52,7 +52,7 @@ jobs:
       run: |
         rm -rf ./AdGuardHome-prerelease/*
         rm -f ./tmp/AdGuardHome/*.sig
-        cp -f ./tmp/AdGuardHome/AdGuardHome* ./AdGuardHome-prerelease/
+        mv -f ./tmp/AdGuardHome/AdGuardHome* ./AdGuardHome-prerelease/
         rm -rf ./tmp*
 
     - name: Commit and push
